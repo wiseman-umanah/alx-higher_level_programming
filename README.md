@@ -18,10 +18,12 @@ High-level languages promote higher productivity among developers. They come wit
 High-level languages use interpreters or compilers to convert the human-readable code into machine code. Interpreters execute the code line by line, whereas compilers translate the entire code into machine code before execution. This compilation process often results in faster execution.
 
 # Examples of High-Level Languages:
-Python: Known for its simplicity and readability, Python is widely used in various applications, including web development, data science, and artificial intelligence.
-Java
-C++
-C#
-JavaScript
+
+# Python:
+Known for its simplicity and readability, Python is widely used in various applications, including web development, data science, and artificial intelligence.
+# Java
+# C++
+# C#
+# JavaScript
 
 In summary, high-level programming languages provide a bridge between human understanding and computer execution. They simplify the process of programming, making it accessible to a wider range of people and enabling the creation of diverse software applications.
