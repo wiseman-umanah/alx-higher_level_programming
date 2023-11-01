@@ -1,13 +1,11 @@
 #!/usr/bin/python3
 def fizzbuzz():
-    i = 1
-    while i <= 100:
-        if i % 3 == 0 and i % 5 == 0:
-            print("{} ".format("Fizzbuzz"), end="")
-        elif i % 5 == 0:
-            print("{} ".format("Buzz"), end="")
-        elif i % 3 == 0:
-            print("{} ".format("Fizz"), end="")
+    for count in range(1, 101):
+        if count % 3 == 0 and count % 5 == 0:
+            print("FizzBuzz ", end="")
+        elif count % 3 == 0:
+            print("Fizz ", end="")
+        elif count % 5 == 0:
+            print("Buzz ", end="")
         else:
-            print("{} ".format(i), end="")
-        i += 1
+            print('%d ' % (count), end="")
