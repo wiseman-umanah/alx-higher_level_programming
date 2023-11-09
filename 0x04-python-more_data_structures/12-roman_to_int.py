@@ -1,14 +1,12 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    num = {"M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1}
-    result = 0
-    prev_value = 0
-
-    for i in roman_string[::-1]:
-        if roman_num[i] >= prev_value:
-            result += num[i]
+    if roman_string is None or type(roman_string) is not str:
+        return (0)
+    roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    integer = 0
+    for i in range(len(roman_string)):
+        if i > 0 and roman[roman_string[i]] > roman[roman_string[i - 1]]:
+            integer += roman[roman_string[i]] - 2 * roman[roman_string[i - 1]]
         else:
-            result -= num[i]
-        prev_value = num[i]
-
-    return result
+            integer += roman[roman_string[i]]
+    return (integer)
