@@ -1,3 +1,3 @@
 #!/usr/bin/python
 def raise_exception():
-    "H" + 34
+    raise TypeError
