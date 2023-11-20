@@ -4,10 +4,10 @@ def func(a, b):
     for i in range(1, 3, 2):
         try:
             if i > a:
-                raise ("Too far")
+                raise Exception("Too far")
             else:
                 result += a ** b / i
-        except IndexError:
+        except:
             result = a + b
         break
     return result
