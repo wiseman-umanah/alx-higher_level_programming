@@ -83,6 +83,8 @@ class Square:
             self.__position = value
         
     def __str__ (self):
+        """Prints a Square instance the same behavior as my_print()
+        """
         strList = []
         if self.__size == 0:
             strList.append("\n")
