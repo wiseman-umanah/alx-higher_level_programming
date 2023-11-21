@@ -29,15 +29,6 @@ class Square:
         """
         return self.__size ** 2
 
-    def my_print(self):
-        """prints in stdout the square with the character #
-        """
-        for i in range(self.__size):
-            if self.__size == 0:
-                print("")
-            else:
-                print("#" * self.__size)
-
     @property
     def size(self):
         """
@@ -54,3 +45,12 @@ class Square:
             self.__size = value
         else:
             raise ValueError("size must be an integer")
+
+    def my_print(self):
+        """prints in stdout the square with the character #
+        """
+        for i in range(self.__size):
+            if self.__size == 0:
+                print("")
+            else:
+                print("#" * self.__size)
