@@ -41,16 +41,15 @@ class Square:
     @property
     def size(self):
         """
-        This resets the size value if the size needs to be changed
-        Args:
-            value (int): the new value for the size of the Square
-        Raises:
-            ValueError: if the new value is not an integer
+        size getter. Handle size errors
         """
         return self.__size
 
     @size.setter
     def size(self, value):
+        """
+        size setter. Sets the value of size
+        """
         if isinstance(value, int) and value >= 0:
             self.__size = value
         else:
