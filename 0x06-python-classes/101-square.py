@@ -69,7 +69,7 @@ class Square:
         """
         Handle position with errors
         """
-        if type(value) != tuple:
+        if not isinstance(value, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
         elif len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -81,7 +81,7 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
-        
+
     def __str__(self):
         """Prints a Square instance the same behavior as my_print()
         """
