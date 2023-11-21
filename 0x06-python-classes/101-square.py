@@ -82,17 +82,17 @@ class Square:
         else:
             self.__position = value
         
-    def __str__ (self):
+    def __str__(self):
         """Prints a Square instance the same behavior as my_print()
         """
-        self.strList = []
+        self.my_list = []
         if self.__size == 0:
-            self.strList.append("\n")
-            return
+            return ""
         for j in range(self.__position[1]):
-            self.strList.append("\n")
+            self.my_list.append("\n")
         for i in range(self.__size):
-            self.strList.append(" " * self.__position[0])
-            self.strList.append("#" * self.__size)
-            self.strList.append("\n")
-        return "".join(self.strList)
+            self.my_list.append(" " * self.__position[0])
+            self.my_list.append("#" * self.__size)
+            if (i < self.__size - 1):
+                self.my_list.append("\n")
+        return "".join(self.my_list)
