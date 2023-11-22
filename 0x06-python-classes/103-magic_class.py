@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import math
-
-
+"""A class for a circle
+"""
 class MagicClass:
 
     """Class that stores the properties
