@@ -1,0 +1,102 @@
+============================
+How to Use 100-matrix_mul.py
+============================
+
+This module defines a function to calculate the product of 2 matrices(no module)
+
+Usage
+=====
+
+``matrix_mul(...)``` Returns the new matrix after operation on both matrices
+Multiplies 2 matrices from user's input
+
+::
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    [[7, 10], [15, 22]]
+
+::
+
+    >>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+    [[13, 16]]
+
+The function also works with floating-point values.
+
+::
+
+    >>> matrix_mul([[1, 2.4], [3, 4]], [[1, 2], [3, 4]])
+    [[8.2, 11.6], [15, 22]]
+
+Both matrix must be present, if  matrix is beyond 2 or less an error occurs.
+
+::
+
+    >>> matrix_mul([[1, 2]], [[3, 4], [5, 6]], 9)
+    Traceback (most recent call last):
+    TypeError: matrix_mul() takes 2 positional arguments but 3 were given
+
+::
+
+    >>> matrix_mul([[1, 2]])
+    Traceback (most recent call last):
+    TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+Non-Numbers
+===========
+
+``matrix_mul()`` expects that both matrix contains either integers or floats.
+If any value is a non-integer and non-float, a TypeError is raised:
+
+::
+
+    >>> matrix_mul([[1, "H"]], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_a should contain only integers or floats
+
+::
+
+    >>> matrix_mul([[1, 2]], [[3, "H"], [5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_b should contain only integers or floats
+
+::
+
+    >>> matrix_mul(None, None)
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
+::
+
+    >>> matrix_mul([[2,3]], None)
+    Traceback (most recent call last):
+    TypeError: m_b must be a list
+
+The matrix must be a list of lists with all values an integer of float:
+
+::
+
+    >>> matrix_mul([1, 2], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+::
+
+    >>> matrix_mul([[1, 2]], [3, 4])
+    Traceback (most recent call last):
+    TypeError: m_b must be a list of lists
+
+
+If both or one argument is not a list.
+
+::
+
+    >>> matrix_mul("hello", [[1,2]])
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
+::
+
+    >>> matrix_mul([[1,2]], "hello")
+    Traceback (most recent call last):
+    TypeError: m_b must be a list

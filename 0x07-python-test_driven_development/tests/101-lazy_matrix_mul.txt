@@ -1,0 +1,102 @@
+=================================
+How to Use 101-lazy_matrix_mul.py
+=================================
+
+This module defines a function to calculate the product of 2 matrices(with module)
+
+Usage
+=====
+
+``lazy_matrix_mul(...)``` Returns the new matrix after operation on both matrices
+Multiplies 2 matrices from user's input
+
+::
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    array([[ 7, 10],
+           [15, 22]])
+
+::
+
+    >>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+    array([[13, 16]])
+
+The function also works with floating-point values.
+
+::
+
+    >>> lazy_matrix_mul([[1, 2.4], [3, 4]], [[1, 2], [3, 4]])
+    array([[ 8.2, 11.6],
+           [15. , 22. ]])
+
+Both matrix must be present, if  matrix is beyond 2 or less an error occurs.
+
+::
+
+    >>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]], 9)
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() takes 2 positional arguments but 3 were given
+
+::
+
+    >>> lazy_matrix_mul([[1, 2]])
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+Non-Numbers
+===========
+
+``lazy_matrix_mul()`` expects that both matrix contains either integers or floats.
+If any value is a non-integer and non-float, an Error is raised:
+
+::
+
+    >>> lazy_matrix_mul([[1, "H"]], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+    ValueError: data type must provide an itemsize
+
+::
+
+    >>> lazy_matrix_mul([[1, 2]], [[3, "H"], [5, 6]])
+    Traceback (most recent call last):
+    ValueError: data type must provide an itemsize
+
+::
+
+    >>> lazy_matrix_mul(None, None)
+    Traceback (most recent call last):
+    TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
+
+::
+
+    >>> lazy_matrix_mul([[2,3]], None)
+    Traceback (most recent call last):
+    TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+
+The function works for a matrix that is a ist but not a list of lists:
+
+::
+
+    >>> lazy_matrix_mul([1, 2], [[3, 4], [5, 6]])
+    array([13, 16])
+
+::
+
+    >>> lazy_matrix_mul([[1, 2]], [3, 4])
+    array([11])
+
+
+If both or one argument is not a list.
+
+::
+
+    >>> lazy_matrix_mul("hello", [[1,2]])
+    Traceback (most recent call last):
+    numpy.core._exceptions._UFuncNoLoopError: ufunc 'multiply' did not contain a loop with signature matching types (dtype('<U5'), dtype('<U1')) -> None
+
+::
+
+    >>> lazy_matrix_mul([[1,2]], "hello")
+    Traceback (most recent call last):
+    numpy.core._exceptions._UFuncNoLoopError: ufunc 'multiply' did not contain a loop with signature matching types (dtype('<U1'), dtype('<U5')) -> None

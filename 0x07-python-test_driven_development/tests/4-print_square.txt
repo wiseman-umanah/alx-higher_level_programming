@@ -1,0 +1,88 @@
+===========================
+How to Use 4-print_square.py
+===========================
+
+This module defines a function that prints a square pattern
+
+Usage
+=====
+
+``print_square(...)``` Prints the square pattern with # based on input
+
+::
+
+    >>> print_square = __import__('4-print_square').print_square
+    >>> print_square(2)
+    ##
+    ##
+
+::
+
+    >>> print_square(1)
+    #
+
+The function also works with floating-point values.
+Note that floats are casted to integers before printing.
+
+::
+
+    >>> print_square(2.5)
+    ##
+    ##
+
+Error is raised if value is less than 0
+
+::
+
+    >>> print_square(-2.5)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+::
+
+    >>> print_square(-2)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+Only one argument is allowed.
+
+::
+
+    >>> print_square(2, 5)
+    Traceback (most recent call last):
+    TypeError: print_square() takes 1 positional argument but 2 were given
+
+Non-Number
+===========
+
+``print_square()`` expects argument to be either integer or float.
+If argument is a non-integer and non-float, a TypeError is raised:
+
+::
+
+    >>> print_square("string")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+::
+
+    >>> print_square(None)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+
+The function will fail if infinity is provided.
+
+::
+
+    >>> print_square(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+And again with NaN numbers.
+
+::
+
+    >>> print_square(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer

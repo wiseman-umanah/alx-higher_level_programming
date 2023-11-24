@@ -1,0 +1,113 @@
+===========================
+How to Use 2-matrix_divided.py
+===========================
+
+This module returns a new matrix of divided value with div ``matrix_divided(matrix, div)``
+
+Usage
+=====
+
+``matrix_divided(...)``` returns a new matrix of divided value with div.
+
+::
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [[1, 2, 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+::
+
+    >>> matrix_divided(matrix, -3)
+    [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+The function also works with floating-point values.
+Note that floats are casted to round to 2 decimal places after division.
+
+::
+
+    >>> matrix = [[1.0, 2.3, 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.77, 1.0], [1.33, 1.67, 2.0]]
+
+The second argument is not optional - by default, and must be present.
+
+::
+
+    >>> matrix_divided(matrix)
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Non-Numbers
+===========
+
+``matrix_divided()`` expects that the second argument is either an integer or float
+If either argument is a non-integer and non-float, a TypeError is raised.
+The matrix must be a list of lists with all values an integer of float:
+
+::
+
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+
+::
+
+    >>> matrix = [[1.0, "H", 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+    >>> matrix = [[1.0, 2.3, 3],[4, 5, 6]]
+    >>> matrix_divided(matrix, None)
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+::
+
+    >>> matrix_divided(None, 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+    >>> temp = [[1.0, 2.3, 3], 4]
+    >>> matrix_divided(temp, 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    
+::
+
+    >>> temp = [[1.0, 2.3, 3], [4, 5, 6, 7]]
+    >>> matrix_divided(temp, 3)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+::
+
+    >>> temp = [[1.0, 2.3, 3], [4]]
+    >>> matrix_divided(temp, 3)
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+If div is a non-integer and non-float and matrix is  not a list, a TypeError message is printed
+
+::
+
+    >>> matrix_divided("hello", "there")
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+::
+
+    >>> matrix_divided(matrix, "string")
+    Traceback (most recent call last):
+    TypeError: div must be a number
+
+::
+
+    >>> matrix_divided("matrix", 3)
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats

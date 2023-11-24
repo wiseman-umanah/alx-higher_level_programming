@@ -1,0 +1,59 @@
+================================
+How to Use 5-text_indentation.py
+================================
+
+This module define a function that strips a string based on some punctation mark
+
+Usage
+=====
+
+``text_indentation(...)``` Prints the formatted string
+
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("John, Smith")
+    John
+    <BLANKLINE>
+     Smith
+
+::
+
+    >>> text_indentation("Walter, White")
+    Walter
+    <BLANKLINE>
+     White
+
+Non-String
+===========
+
+``text_indentation()`` expects that both argument to be a string.
+If either argument is a non-string, a TypeError is raised:
+
+::
+
+    >>> text_indentation(3.5)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::
+
+    >>> text_indentation(2)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+::
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Overflow
+========
+``text_indentation(...)`` only accept one argument else an error is displayed
+
+::
+
+    >>> text_indentation("Bib , hello", "hello")
+    Traceback (most recent call last):
+    TypeError: text_indentation() takes 1 positional argument but 2 were given

@@ -1,0 +1,68 @@
+===========================
+How to Use 3-say_my_name.py
+===========================
+
+This module define a function that print the information of the user
+
+Usage
+=====
+
+``say_my_name(...)``` Prints first and last name of user based on user's input
+
+::
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+::
+
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+The second argument is optional - by default, it is an empty string.
+
+::
+
+    >>> say_my_name("Jon")
+    My name is Jon 
+
+Non-String
+===========
+
+``say_my_name()`` expects that both argument to be a string.
+If either argument is a non-string, a TypeError is raised:
+
+::
+
+    >>> say_my_name("hello", 3)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+::
+
+    >>> say_my_name(2, "hello")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+::
+
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+::
+
+    >>> say_my_name("hello", None)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Overflow
+===========
+``say_my_name(...)`` only accepts two argument else an error is displayed
+
+::
+
+    >>> say_my_name("Bib", "hello", 3)
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
