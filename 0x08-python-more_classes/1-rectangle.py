@@ -21,6 +21,8 @@ class Rectangle:
     @property
     def width(self):
         """sets the width of the rectangle
+        Args:
+            value (int): the new width
         Raises:
             ValueError: if width is < 0
             TypeError: if width is not an integer
@@ -40,6 +42,8 @@ class Rectangle:
     @property
     def height(self):
         """Sets the height of the rectangle
+        Args:
+            value (int): the new height
         Raises:
             ValueError: if height is < 0
             TypeError: if height is not an integer
