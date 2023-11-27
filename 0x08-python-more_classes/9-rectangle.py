@@ -5,7 +5,15 @@ This module is composed by a class that defines a Rectangle
 
 
 class Rectangle:
-    """ Class that defines a rectangle """
+    """
+    Class that defines a rectangle
+    Attributes:
+        area: returns the area of the rectangle
+        perimeter: returns the perimeter of the rectangle
+        __str__: petty prints the rectangle to satndard output
+        __repr__: returns a formal representation of the object
+        __del__: prints a statement to stdout whenever a change is made
+    """
 
     number_of_instances = 0
     print_symbol = "#"
