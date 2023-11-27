@@ -24,6 +24,8 @@ class Rectangle:
         Raises:
             ValueError: if width is < 0
             TypeError: if width is not an integer
+        Returns:
+            Returns the new width
         """
         return self.__width
 
@@ -41,6 +43,8 @@ class Rectangle:
         Raises:
             ValueError: if height is < 0
             TypeError: if height is not an integer
+        Returns:
+            Returns the new width
         """
         return self.__height
 
