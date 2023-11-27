@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 class Rectangle:
-    def __init__(self, width= 0, height= 0):
-        self.__height = height 
+    def __init__(self, width=0, height=0):
+        self.__height = height
         self.__width = width
-    
+
     @property
     def width(self):
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
