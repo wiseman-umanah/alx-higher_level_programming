@@ -13,15 +13,19 @@ class Rectangle:
         """
         Initialiizes class with it's instances
         Args:
-			height (int): This is the height of the rectangle
-            width (int): This is the width of the rectangle
+		height (int): This is the height of the rectangle
+  		width (int): This is the width of the rectangle
         """
         self.__height = height
         self.__width = width
 
     @property
     def width(self):
-        """sets the width of the rectangle"""
+        """sets the width of the rectangle
+	Raises:
+ 		ValueError: if width is < 0
+   		TypeError: if width is not an integer
+   	"""
         return self.__width
 
     @width.setter
@@ -34,7 +38,11 @@ class Rectangle:
 
     @property
     def height(self):
-        """Sets the height of the rectangle"""
+        """Sets the height of the rectangle
+	Raises:
+ 		ValueError: if height is < 0
+   		TypeError: if height is not an integer
+     """
         return self.__height
 
     @height.setter
