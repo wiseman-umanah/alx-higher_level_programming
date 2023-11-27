@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-This is an empty class
+0-rectangle: class Rectangle
 """
 
 
 class Rectangle:
-    """Nothing happens"""
+    """ Empty class """
     pass
