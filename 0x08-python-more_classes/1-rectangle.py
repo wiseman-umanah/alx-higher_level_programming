@@ -1,11 +1,21 @@
 #!/usr/bin/python3
+"""
+1-rectangle: class Rectangle
+"""
+
+
 class Rectangle:
+    """
+    This defines a rectangle class with width and height
+    
+    """
     def __init__(self, width=0, height=0):
         self.__height = height
         self.__width = width
 
     @property
     def width(self):
+        """sets the width of the rectangle"""
         return self.__width
 
     @width.setter
@@ -18,6 +28,7 @@ class Rectangle:
 
     @property
     def height(self):
+        """Sets the height of the rectangle"""
         return self.__height
 
     @height.setter
