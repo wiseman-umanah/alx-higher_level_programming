@@ -146,5 +146,8 @@ class Rectangle:
         Returns:
             a new instance of Rectangle class
         """
-
+        if size < 0:
+            raise ValueError("width must be >= 0")
+        if not isinstance(size, int):
+            raise ValueError("width must be an integer")
         return cls(size, size)
