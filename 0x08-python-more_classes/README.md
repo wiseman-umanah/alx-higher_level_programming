@@ -18,4 +18,3 @@ Project done during **Full Stack Software Engineering studies** . It aims to lea
 | `7-rectangle.py` | Class `Rectangle` with a public class attribute to print a specific symbol |
 | `8-rectangle.py` | Class `Rectangle` with a method to compare instance's size |
 | `9-rectangle.py` | Class `Rectangle` with a class method that returns a new instance|
-| `101-nqueens.py` | `Backtracking` algorithm that solves the N-Queen puzzle |
