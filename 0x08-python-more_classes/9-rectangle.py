@@ -24,7 +24,14 @@ class Rectangle:
             width: width of the rectangle
             height: height of the rectangle
         """
-
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        if width < 0:
+            raise ValueError("width must be >= 0")
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        if height < 0:
+            raise ValueError("height must be >= 0")
         self.__height = height
         self.__width = width
         Rectangle.number_of_instances += 1
@@ -75,8 +82,8 @@ class Rectangle:
 
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-            if value < 0:
-                raise ValueError("height must be >= 0")
+        if value < 0:
+            raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
@@ -146,8 +153,5 @@ class Rectangle:
         Returns:
             a new instance of Rectangle class
         """
-        if size < 0:
-            raise ValueError("width must be >= 0")
-        if not isinstance(size, int):
-            raise ValueError("width must be an integer")
+
         return cls(size, size)
