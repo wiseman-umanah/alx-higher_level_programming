@@ -17,20 +17,20 @@ def matrix_mul(m_a, m_b):
         raise TypeError("m_a must be a list")
     if not isinstance(m_b, list):
         raise TypeError("m_b must be a list")
-    if [] in m_a:
+    if [] == m_a:
         raise ValueError("m_a can't be empty")
-    if [] in m_b:
+    if [] == m_b:
         raise ValueError("m_b can't be empty")
     for i in m_a:
         if not isinstance(i, list):
             raise TypeError("m_a must be a list of lists")
         if len(i) != len(m_a[0]):
-            raise TypeError("m_a must be of the same size")
+            raise TypeError("each row of m_a must be of the same size")
     for i in m_b:
         if not isinstance(i, list):
             raise TypeError("m_b must be a list of lists")
         if len(i) != len(m_b[0]):
-            raise TypeError("m_a must be of the same size")
+            raise TypeError("each row of m_b must be of the same size")
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
     e1 = "should contain only integers or floats"
