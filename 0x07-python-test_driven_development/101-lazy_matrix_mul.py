@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
 This will print the product of two matrices to output
 >>>lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
