@@ -11,15 +11,27 @@ boy
 def text_indentation(text):
     """
     Prints the formatted string
-    Parameters: the text to strip
-    Raise TypeError if text is not a string
+
+    Args:
+		text (str): The string to reprint
+
+    Raises:
+    	TypeError: if text is not a string
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    puncs = [".", ",", "?", ":"]
-    for i in text:
-        if i in puncs:
-            print("\n")
-            continue
-        print(i, end="")
-    print("")
+    i = 0
+    s = ""
+    while i != len(text):
+        if text[i] in [':', '?', '.']:
+            s += text[i]
+            s += "\n"
+            i += 1
+            if text[i] == " ":
+                s += "\n"
+            else:
+                s += text[i]
+        else:
+            s += text[i]
+        i += 1
+    print(s, end="")

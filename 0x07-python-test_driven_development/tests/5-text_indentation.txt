@@ -12,17 +12,15 @@ Usage
 ::
 
     >>> text_indentation = __import__('5-text_indentation').text_indentation
-    >>> text_indentation("John, Smith")
-    John
+    >>> text_indentation("John. Smith")
+    John.
     <BLANKLINE>
-     Smith
+    Smith
 
 ::
 
     >>> text_indentation("Walter, White")
-    Walter
-    <BLANKLINE>
-     White
+    Walter, White
 
 Non-String
 ===========
