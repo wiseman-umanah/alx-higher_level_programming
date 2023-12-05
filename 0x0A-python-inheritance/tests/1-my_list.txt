@@ -1,0 +1,33 @@
+=======================
+How to Use 1-my_list.py
+=======================
+
+This module defines a class that inherits from list ``MyList(list)``.
+
+Usage
+=====
+
+``MyList(list)`` prints the sorted list to standard output
+
+::
+	>>> MyList = __import__("1-my_list").MyList
+	>>> my_list = MyList([3, 2, 8, 4, 2])
+	>>> my_list.print_sorted()
+	[2, 2, 3, 4, 8]
+
+::
+	>>> my_list = MyList(["H", 2, "W", 4, 2])
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+	TypeError: '<' not supported between instances of 'int' and 'str'
+
+::
+	>>> my_list = MyList([3, 2.5, 8, 4.2, 2, 4])
+	>>> my_list.print_sorted()
+	[2, 2.5, 3, 4, 4.2, 8]
+
+::
+	>>> my_list = MyList(["H", 2.5, 8, 4, 2])
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+	TypeError: '<' not supported between instances of 'float' and 'str'

@@ -1,0 +1,39 @@
+=======================
+How to Use 7-base_geometry.py
+=======================
+
+This module defines a class for goemetry handling ``BaseGeometry()``.
+
+Usage
+=====
+
+``BaseGeometry()`` prints the sorted list to standard output
+
+::
+	>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+	>>> BaseGeometry.area("self")
+	Traceback (most recent call last):
+	AttributeError: area() is not implemented
+
+::
+	>>> BaseGeometry.integer_validator("self", "name", "Wiseman")
+	Traceback (most recent call last):
+	TypeError: name must be an integer
+
+::
+	>>> BaseGeometry.integer_validator("self", "int", "Wiseman")
+	Traceback (most recent call last):
+	TypeError: int must be an integer
+
+::
+	>>> BaseGeometry.integer_validator("self", "int", -12)
+	Traceback (most recent call last):
+	ValueError: int must be greater than 0
+
+::
+	>>> BaseGeometry.integer_validator("self", "int", 2.3)
+	Traceback (most recent call last):
+	TypeError: int must be an integer
+
+::
+	>>> BaseGeometry.integer_validator("self", "int", 24)
