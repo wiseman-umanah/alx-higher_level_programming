@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Defines a class Rect that inherits from BaseGeometry."""
+"""
+Defines a class Rect that inherits from BaseGeometry.
+"""
+
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 

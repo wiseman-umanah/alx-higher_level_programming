@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 
-"""An empty class"""
+"""
+An empty class
+"""
 
 
 class BaseGeometry():
-    """empty class BaseGeometry"""
+    """
+    empty class BaseGeometry
+    """
     pass

@@ -1,17 +1,21 @@
 #!/usr/bin/python3
 
-"""A class for Geometry"""
+"""
+A class for Geometry
+"""
 
 
 class BaseGeometry():
-    """Class for goemetry handling
+    """
+    Class for goemetry handling
 
     Attributes:
         area: raises error with a message
         integer_validator: checks if passed argument is an integer
     """
     def area(self):
-        """Function that raises an Exception
+        """
+        Function that raises an Exception
         with the message area() is not implemented
 
         Raises:
@@ -20,7 +24,8 @@ class BaseGeometry():
         raise AttributeError("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Functions that validates value
+        """
+        Functions that validates value
 
         Raises:
             TypeError: value must be an integer

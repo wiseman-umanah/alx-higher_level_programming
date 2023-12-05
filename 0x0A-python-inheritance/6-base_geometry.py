@@ -1,10 +1,13 @@
 #!/usr/bin/python3
 
-"""A class for Geometry"""
+"""
+A class for Geometry
+"""
 
 
 class BaseGeometry():
-    """Class for goemetry handling
+    """
+    Class for goemetry handling
 
     Attributes:
         area: raises error with a message
