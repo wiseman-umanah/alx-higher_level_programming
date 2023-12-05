@@ -19,4 +19,4 @@ class BaseGeometry():
         Raises:
             AttributeError: To tell user that function is not implemented
         """
-        raise AttributeError("area() is not implemented")
+        raise Exception("area() is not implemented")
