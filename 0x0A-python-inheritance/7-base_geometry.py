@@ -27,6 +27,10 @@ class BaseGeometry():
         """
         Functions that validates value
 
+        Args:
+            name (str): The type of value parsed
+            value (int): the value parsed
+
         Raises:
             TypeError: value must be an integer
             ValueError: Value must be greater than 0
