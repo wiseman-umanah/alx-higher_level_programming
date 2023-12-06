@@ -6,14 +6,17 @@ Class inheritance
 
 
 class MyInt(int):
-    """
+     """
     class MyInt that inherits from int
     """
     def __init__(self, number):
-        """
-        Initializes a new class
-
-        Args:
-            number (int): the number to initialize with
-        """
         self.number = number
+
+    def __ne__(self, value):
+        return (self.number == value)
+
+    def __eq__(self, value):
+        return (self.number != value)
+
+    def __str__(self):
+        return (str(self.number))
