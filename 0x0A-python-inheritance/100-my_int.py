@@ -6,7 +6,7 @@ Class inheritance
 
 
 class MyInt(int):
-     """
+    """
     class MyInt that inherits from int
     """
     def __init__(self, number):
