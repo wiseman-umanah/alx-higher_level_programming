@@ -7,21 +7,22 @@ filename = "add_item.json"
 
 
 def main(filename):
-	"""Loads json, Add json to file, saves
+    """Loads json, Add json to file, saves
 
-	Args:
-		filename: the filename
-	"""
-	listy = []
-	i = 1
-	while i < len(sys.argv):
-		listy.append(sys.argv[i])
-		i += 1
-	try:
-		temp = load(filename)
-		listy = list(temp) + listy
-		save(listy, filename)
-	except:
-		save(listy, filename)
+    Args:
+        filename: the filename
+    """
+    listy = []
+    i = 1
+    while i < len(sys.argv):
+        listy.append(sys.argv[i])
+        i += 1
+    try:
+        temp = load(filename)
+        listy = list(temp) + listy
+        save(listy, filename)
+    except FileNotFoundError:
+        save(listy, filename)
+
 
 main(filename)
