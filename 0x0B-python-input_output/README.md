@@ -34,3 +34,10 @@ Project done during **Alx Full Stack Software Engineering studies**
 | `11-student.py` | Class `Student` that defines a student with a method to load a JSON object |
 
 | `12-pascal_triangle.py` | Function that returns a list of lists of integers representing the Pascal¡s triangle of `n` |
+
+### ```ADVANCED```
+
+| Filename | Description |
+| -------- | ----------- |
+
+| `100-append_after.py` | function that inserts a line of text to a file, after each line containing a specific string |
