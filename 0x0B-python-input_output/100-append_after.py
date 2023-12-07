@@ -20,4 +20,4 @@ def append_after(filename="", search_string="", new_string=""):
             if search_string in i:
                 temp += new_string
     with open(filename, "w") as fp:
-        fp.write(temp + "\n")
+        fp.write(temp)
