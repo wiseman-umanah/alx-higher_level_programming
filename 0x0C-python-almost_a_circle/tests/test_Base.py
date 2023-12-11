@@ -6,6 +6,7 @@ from models.base import Base
 class BaseTestCase(unittest.TestCase):
     def setUp(self):
         self.base = Base()
+
     def test_to_json_string1(self):
         result = self.base.to_json_string({"id": 1, "man": "Oboy"})
         self.assertEqual(result, '{"id": 1, "man": "Oboy"}')
@@ -38,4 +39,3 @@ class BaseTestCase(unittest.TestCase):
     def test_json_load5(self):
         result = self.base.from_json_string('{"id": 1, "m" : "hey"}')
         self.assertEqual(result, {"id": 1, "m": "hey"})
-    
