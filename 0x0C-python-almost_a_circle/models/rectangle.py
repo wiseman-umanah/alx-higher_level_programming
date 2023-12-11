@@ -174,7 +174,10 @@ class Rectangle(Base):
 
     def display(self):
         """Prints the rectangle to STDOUT"""
-        print((("#" * self.width + "\n") * self.height).strip())
+        for i in range(self.y):
+            print("")
+        for i in range(self.__height):
+            print(" "*self.x + "#"*self.__width)
 
     def __str__(self):
         """Returns the string representation of the class"""
