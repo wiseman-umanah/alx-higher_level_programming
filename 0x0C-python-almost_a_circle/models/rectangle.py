@@ -14,21 +14,31 @@ class Rectangle(Base):
 
     Attributes:
         area: returns the area of the rectangle
+
         display: prints the shape of the rectangle to STDOUT
+
         update: updates the argument of the class
+
         to_dictionary: creates a dictionary with class instances
 
         @property:
             width: sets and retrieves the width of the class
+
             height: sets and retrieves the height of the class
+
             x: sets and retrieves the x-axis of the class
+
             y: sets and retrieves the y-axis of the class
 
     Args:
         id (any): The id from the super class
+
         width (int): the width of the rectangle
+
         height (int): the height of the rectangle
+
         x (int): the x axis to draw the rectangle
+
         y (int): the y axis to draw the rectangle
     """
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -36,12 +46,16 @@ class Rectangle(Base):
 
         Args:
             width (int): the width of the rectangle
+
             height (int): the height of the rectangle
+
             x (int): the x-axis of the rectangle
+
             y (int): the y-axis of the rectangle
 
         Raises:
             TypeError: if height, width, x or y is not an integer
+
             ValueError: if height, width, x or y is > 0
         """
         super().__init__(id)
