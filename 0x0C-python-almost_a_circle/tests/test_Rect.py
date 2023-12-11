@@ -2,12 +2,15 @@ import unittest
 from unittest.mock import patch
 from models.rectangle import Rectangle
 from io import StringIO
+import os
 
 
 class RectTestCases(unittest.TestCase):
 	def setUp(self):
 		self.rect = Rectangle(5, 3)
-		self.msg = "[Rectangle] (25) 0/0 - 5/3"
+		self.file1 = "Rectangle.json"
+		self.file2 = "Rectangle.csv"
+		self.msg = "[Rectangle] (27) 0/0 - 5/3"
 		self.result = "#####\n#####\n#####"
 
 	def test_init1(self):
@@ -139,5 +142,23 @@ class RectTestCases(unittest.TestCase):
 		self.assertEqual(self.rect.__str__(), self.msg)
 	
 	def test_to_dict(self):
-		dict = {"id": 26, "width": 5, "height": 3, "x": 0, "y": 0}
+		dict = {"id": 28, "width": 5, "height": 3, "x": 0, "y": 0}
 		self.assertEqual(self.rect.to_dictionary(), dict)
+	
+	def test_save_to_file(self):
+		Rectangle.save_to_file([self.rect])
+		self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+	
+	def text_check_file(self):
+		ins = Rectangle.load_from_file()
+		chk = True if isinstance(ins, Rectangle) else False
+		self.assertTrue(chk)
+
+	def test_save_to_file_csv(self):
+		Rectangle.save_to_file_csv([self.rect])
+		self.assertTrue(self.file2 in os.listdir(os.getcwd()))
+	
+	def text_check_file_csv(self):
+		ins = Rectangle.load_from_file_csv()
+		chk = True if isinstance(ins, Rectangle) else False
+		self.assertTrue(chk)

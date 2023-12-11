@@ -1,11 +1,14 @@
 from models.square import Square
 import unittest
+import os
 
 
 class SquareTestCase(unittest.TestCase):
 	def setUp(self):
 		self.square = Square(5)
-		self.msg = "[Square] (47) 0/0 - 5"
+		self.file1 = "Square.json"
+		self.file2 = "Square.csv"
+		self.msg = "[Square] (57) 0/0 - 5"
 
 	def test_init1(self):
 		with self.assertRaises(TypeError):
@@ -48,8 +51,38 @@ class SquareTestCase(unittest.TestCase):
 		self.test_size_get(self.square.size)
 
 	def test_to_dict(self):
-		dict = {"id": 48, "size": 5, "x": 0, "y": 0}
+		dict = {"id": 58, "size": 5, "x": 0, "y": 0}
 		self.assertEqual(self.square.to_dictionary(), dict)
 
 	def test_str_rep(self):
 		self.assertEqual(self.square.__str__(), self.msg)
+
+	def test_save_to_file(self):
+		Square.save_to_file([self.square])
+		self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+	
+	def test_save_to_file_mul(self):
+		temp1 = Square(10)
+		temp2 = Square(15)
+		Square.save_to_file([self.square, temp1, temp2])
+		self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+	
+	def text_check_file(self):
+		ins = Square.load_from_file()
+		chk = True if isinstance(ins, Square) else False
+		self.assertTrue(chk)
+
+	def test_save_to_file_csv(self):
+		Square.save_to_file_csv([self.square])
+		self.assertTrue(self.file2 in os.listdir(os.getcwd()))
+	
+	def test_save_to_file_csv_mul(self):
+		temp1 = Square(10)
+		temp2 = Square(15)
+		Square.save_to_file([self.square, temp1, temp2])
+		self.assertTrue(self.file2 in os.listdir(os.getcwd()))
+
+	def text_check_file_csv(self):
+		ins = Square.load_from_file_csv()
+		chk = True if isinstance(ins, Square) else False
+		self.assertTrue(chk)
