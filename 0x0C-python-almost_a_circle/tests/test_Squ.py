@@ -62,7 +62,7 @@ class SquareTestCase(unittest.TestCase):
         self.square = Square(5)
         self.file1 = "Square.json"
         self.file2 = "Square.csv"
-        self.msg = "[Square] (63) 0/0 - 5"
+        self.msg = "[Square] (86) 0/0 - 5"
 
     def test_init1(self):
         """
@@ -74,6 +74,8 @@ class SquareTestCase(unittest.TestCase):
             tmp = Square(2, "Fail")
         with self.assertRaises(TypeError):
             tmp = Square(23, 122, "Fail")
+        with self.assertRaises(ValueError):
+            tmp = Square(0)
 
     def test_init2(self):
         """
@@ -85,6 +87,8 @@ class SquareTestCase(unittest.TestCase):
             tmp = Square(23, -20)
         with self.assertRaises(ValueError):
             tmp = Square(23, 10, -200)
+        tmp = Square(1, 2, 3, 4)
+        self.assertEqual(tmp.id, 4)
 
     def test_size_get(self, value=None):
         """
@@ -123,7 +127,7 @@ class SquareTestCase(unittest.TestCase):
         """
         Checks the return value of to_dictionary function
         """
-        dict = {"id": 64, "size": 5, "x": 0, "y": 0}
+        dict = {"id": 87, "size": 5, "x": 0, "y": 0}
         self.assertEqual(self.square.to_dictionary(), dict)
 
     def test_str_rep(self):
@@ -138,6 +142,20 @@ class SquareTestCase(unittest.TestCase):
         """
         Square.save_to_file([self.square])
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+        
+    def test_save_to_file_ins(self):
+        Square.save_to_file([Square(1)])
+        self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+    
+    def test_save_to_file_None(self):
+        Square.save_to_file(None)
+        self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+        self.text_check_file()
+
+    def test_save_to_file_empty(self):
+        Square.save_to_file([])
+        self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+        self.text_check_file()
 
     def test_save_to_file_mul(self):
         """
@@ -154,7 +172,7 @@ class SquareTestCase(unittest.TestCase):
         Content must be a list
         """
         ins = Square.load_from_file()
-        chk = True if isinstance(ins, Square) else False
+        chk = isinstance(ins, list)
         self.assertTrue(chk)
 
     def test_save_to_file_csv(self):
@@ -181,3 +199,8 @@ class SquareTestCase(unittest.TestCase):
         ins = Square.load_from_file_csv()
         chk = True if isinstance(ins, Square) else False
         self.assertTrue(chk)
+
+    def test_load_from_file(self):
+        result = self.square.load_from_file()
+        boo = isinstance(result, list)
+        self.assertEqual(boo, True)

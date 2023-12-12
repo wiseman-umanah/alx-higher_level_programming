@@ -100,7 +100,7 @@ class RectTestCases(unittest.TestCase):
         self.rect = Rectangle(5, 3)
         self.file1 = "Rectangle.json"
         self.file2 = "Rectangle.csv"
-        self.msg = "[Rectangle] (33) 0/0 - 5/3"
+        self.msg = "[Rectangle] (47) 0/0 - 5/3"
         self.result = "#####\n#####\n#####"
 
     def test_init1(self):
@@ -123,11 +123,15 @@ class RectTestCases(unittest.TestCase):
         with self.assertRaises(ValueError):
             rect1 = Rectangle(-1, 23)
         with self.assertRaises(ValueError):
+            rect1 = Rectangle(0, 2)
+        with self.assertRaises(ValueError):
             rect1 = Rectangle(23, 0)
         with self.assertRaises(ValueError):
             rect1 = Rectangle(23, 10, -200, 122)
         with self.assertRaises(ValueError):
             rect1 = Rectangle(23, 12, 23, -200)
+        rect1 = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(rect1.id, 5)
 
     def test_width_get(self, value=None):
         """
@@ -275,6 +279,13 @@ class RectTestCases(unittest.TestCase):
             self.rect.display()
             IOp = fp.getvalue().strip()
         self.assertEqual(IOp, self.result)
+    
+    def test_display_y_none(self):
+        temp1 = Rectangle(2, 2, 2)
+        with patch("sys.stdout", new_callable=StringIO) as fp:
+            temp1.display()
+            IOp = fp.getvalue().strip()
+        self.assertEqual(IOp, "##\n  ##")
 
     def test_str_rep(self):
         """
@@ -286,7 +297,7 @@ class RectTestCases(unittest.TestCase):
         """
         Checks the return value of to_dictionary function
         """
-        dict = {"id": 34, "width": 5, "height": 3, "x": 0, "y": 0}
+        dict = {"id": 48, "width": 5, "height": 3, "x": 0, "y": 0}
         self.assertEqual(self.rect.to_dictionary(), dict)
 
     def test_save_to_file(self):
@@ -296,13 +307,27 @@ class RectTestCases(unittest.TestCase):
         Rectangle.save_to_file([self.rect])
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
 
+    def test_save_to_file_ins(self):
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+    
+    def test_save_to_file_None(self):
+        Rectangle.save_to_file(None)
+        self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+        self.text_check_file()
+
+    def test_save_to_file_empty(self):
+        Rectangle.save_to_file([])
+        self.assertTrue(self.file1 in os.listdir(os.getcwd()))
+        self.text_check_file()
+
     def text_check_file(self):
         """
         Checks the instance of the content of file created
         Content must be a list
         """
         ins = Rectangle.load_from_file()
-        chk = True if isinstance(ins, Rectangle) else False
+        chk = isinstance(ins, list)
         self.assertTrue(chk)
 
     def test_save_to_file_csv(self):
@@ -345,3 +370,8 @@ class RectTestCases(unittest.TestCase):
         temp2 = Rectangle(15, 3)
         Rectangle.save_to_file_csv([self.rect, temp1, temp2])
         self.assertTrue(self.file2 in os.listdir(os.getcwd()))
+    
+    def test_load_from_file(self):
+        result = self.rect.load_from_file()
+        boo = isinstance(result, list)
+        self.assertEqual(boo, True)
