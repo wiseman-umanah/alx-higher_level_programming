@@ -142,11 +142,11 @@ class SquareTestCase(unittest.TestCase):
         """
         Square.save_to_file([self.square])
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
-        
+
     def test_save_to_file_ins(self):
         Square.save_to_file([Square(1)])
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
-    
+
     def test_save_to_file_None(self):
         Square.save_to_file(None)
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))

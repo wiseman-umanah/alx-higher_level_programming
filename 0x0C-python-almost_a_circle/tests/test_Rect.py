@@ -279,7 +279,7 @@ class RectTestCases(unittest.TestCase):
             self.rect.display()
             IOp = fp.getvalue().strip()
         self.assertEqual(IOp, self.result)
-    
+
     def test_display_y_none(self):
         temp1 = Rectangle(2, 2, 2)
         with patch("sys.stdout", new_callable=StringIO) as fp:
@@ -310,7 +310,7 @@ class RectTestCases(unittest.TestCase):
     def test_save_to_file_ins(self):
         Rectangle.save_to_file([Rectangle(1, 2)])
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
-    
+
     def test_save_to_file_None(self):
         Rectangle.save_to_file(None)
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
@@ -370,7 +370,7 @@ class RectTestCases(unittest.TestCase):
         temp2 = Rectangle(15, 3)
         Rectangle.save_to_file_csv([self.rect, temp1, temp2])
         self.assertTrue(self.file2 in os.listdir(os.getcwd()))
-    
+
     def test_load_from_file(self):
         result = self.rect.load_from_file()
         boo = isinstance(result, list)

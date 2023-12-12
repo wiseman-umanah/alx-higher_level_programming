@@ -47,14 +47,16 @@ class BaseTestCase(unittest.TestCase):
         Function to set up a new instance
         """
         self.base = Base()
-        
+
     def test_id_init1(self):
         temp1 = Base(89)
         self.assertEqual(temp1.id, 89)
+
     def test_id_init2(self):
         temp1 = Base()
         temp1.id = 45
         self.assertEqual(temp1.id, 45)
+
     def test_to_json_string1(self):
         """
         Tests if to_json_string function
