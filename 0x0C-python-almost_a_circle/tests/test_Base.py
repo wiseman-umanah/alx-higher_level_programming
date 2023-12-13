@@ -97,7 +97,7 @@ class BaseTestCase(unittest.TestCase):
         """
         Tests if functiond correctly deserialize a json string
         """
-        self.assertEqual(self.base.from_json_string(None), '[]')
+        self.assertEqual(self.base.from_json_string(None), [])
 
     def test_json_load3(self):
         """
