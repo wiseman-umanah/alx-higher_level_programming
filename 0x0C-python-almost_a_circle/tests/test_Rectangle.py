@@ -100,7 +100,7 @@ class RectTestCases(unittest.TestCase):
         self.rect = Rectangle(5, 3)
         self.file1 = "Rectangle.json"
         self.file2 = "Rectangle.csv"
-        self.msg = "[Rectangle] (47) 0/0 - 5/3"
+        self.msg = "[Rectangle] (57) 0/0 - 5/3"
         self.result = "#####\n#####\n#####"
 
     def test_init1(self):
@@ -281,6 +281,10 @@ class RectTestCases(unittest.TestCase):
         self.assertEqual(IOp, self.result)
 
     def test_display_y_none(self):
+        """
+        Checks what will be displayed to standard output
+        without y
+        """
         temp1 = Rectangle(2, 2, 2)
         with patch("sys.stdout", new_callable=StringIO) as fp:
             temp1.display()
@@ -297,7 +301,7 @@ class RectTestCases(unittest.TestCase):
         """
         Checks the return value of to_dictionary function
         """
-        dict = {"id": 48, "width": 5, "height": 3, "x": 0, "y": 0}
+        dict = {"id": 58, "width": 5, "height": 3, "x": 0, "y": 0}
         self.assertEqual(self.rect.to_dictionary(), dict)
 
     def test_save_to_file(self):
@@ -308,15 +312,27 @@ class RectTestCases(unittest.TestCase):
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
 
     def test_save_to_file_ins(self):
+        """
+        Checks if file is properly created
+        with one parameter
+        """
         Rectangle.save_to_file([Rectangle(1, 2)])
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
 
     def test_save_to_file_None(self):
+        """
+        Checks if file is properly created
+        With None parameter
+        """
         Rectangle.save_to_file(None)
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
         self.text_check_file()
 
     def test_save_to_file_empty(self):
+        """
+        Checks if file is properly created
+        With empty parameter
+        """
         Rectangle.save_to_file([])
         self.assertTrue(self.file1 in os.listdir(os.getcwd()))
         self.text_check_file()
@@ -372,6 +388,126 @@ class RectTestCases(unittest.TestCase):
         self.assertTrue(self.file2 in os.listdir(os.getcwd()))
 
     def test_load_from_file(self):
+        """
+        Loads from a file and checks the instance
+        Contents must be a list
+        """
         result = self.rect.load_from_file()
         boo = isinstance(result, list)
         self.assertEqual(boo, True)
+        
+    def test_create(self):
+        """
+        Test if code can successfully create a new instance
+        """
+        tmp = self.rect.create(**{"id": 2})
+        self.assertTrue(isinstance(tmp, Rectangle))
+        self.assertEqual(tmp.id, 2)
+
+    def test_create1(self):
+        """
+        Test if code can successfully create a new instance
+        """
+        tmp = self.rect.create(**{"id": 2, "width": 2})
+        self.assertTrue(isinstance(tmp, Rectangle))
+        self.assertEqual(tmp.width, 2)
+
+    def test_create2(self):
+        """
+        Test if code can successfully create a new instance
+        """
+        tmp = self.rect.create(**{"id": 2, "width": 2, "height": 4})
+        self.assertTrue(isinstance(tmp, Rectangle))
+        self.assertEqual(tmp.height, 4)
+    
+    def test_create3(self):
+        """
+        Test if code can successfully create a new instance
+        """
+        tmp = self.rect.create(**{"id": 2, "width": 2, "height": 4, "x": 300})
+        self.assertTrue(isinstance(tmp, Rectangle))
+        self.assertEqual(tmp.x, 300)
+
+    def test_create4(self):
+        """
+        Test if code can successfully create a new instance
+        """
+        tmp = self.rect.create(**{"id": 2, "width": 2, "height": 4, "x": 300, "y": 300})
+        self.assertTrue(isinstance(tmp, Rectangle))
+        self.assertEqual(tmp.y, 300)
+
+    def test_update(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update()
+
+    def test_update1(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(89)
+        self.assertEqual(self.rect.id, 89)
+
+    def test_update2(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(89, 10)
+        self.test_width_get(10)
+
+    def test_update2(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(89, 10, 15)
+        self.test_height_get(15)
+    
+    def test_update3(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(89, 10, 15, 200)
+        self.test_x_get(200)
+    
+    def test_update4(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(89, 10, 15, 200, 300)
+        self.test_y_get(300)
+    
+    def test_update5(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(**{"id": 89})
+        self.assertEqual(self.rect.id, 89)
+    
+    def test_update6(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(**{"id": 89, "width": 10})
+        self.test_width_get(10)
+
+    def test_update6(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(**{"id": 89, "width": 10, "height": 15})
+        self.test_height_get(15)
+
+    def test_update7(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(**{"id": 89, "width": 10, "height": 15, "x": 200})
+        self.test_x_get(200)
+    
+    def test_update8(self):
+        """
+        Test the update function that updates the values of instance
+        """
+        self.rect.update(**{"id": 89, "width": 10, "height": 15, "x": 200, "y": 300})
+        self.test_y_get(300)
