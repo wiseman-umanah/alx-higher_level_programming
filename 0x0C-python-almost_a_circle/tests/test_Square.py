@@ -241,7 +241,7 @@ class SquareTestCase(unittest.TestCase):
         tmp = Square.create(**{"id": 2, "size": 2})
         self.assertTrue(isinstance(tmp, Square))
         self.assertEqual(tmp.size, 2)
-    
+
     def test_create2(self):
         """
         Test if code can successfully create a new instance
@@ -277,28 +277,28 @@ class SquareTestCase(unittest.TestCase):
         """
         self.square.update(89, 10)
         self.test_size_get(10)
-    
+
     def test_update3(self):
         """
         Test the update function that updates the values of instance
         """
         self.square.update(89, 10, 200)
         self.assertEqual(self.square.x, 200)
-    
+
     def test_update4(self):
         """
         Test the update function that updates the values of instance
         """
         self.square.update(89, 10, 200, 300)
         self.assertEqual(self.square.y, 300)
-    
+
     def test_update5(self):
         """
         Test the update function that updates the values of instance
         """
         self.square.update(**{"id": 89})
         self.assertEqual(self.square.id, 89)
-    
+
     def test_update6(self):
         """
         Test the update function that updates the values of instance
@@ -312,7 +312,7 @@ class SquareTestCase(unittest.TestCase):
         """
         self.square.update(**{"id": 89, "size": 10, "x": 200})
         self.assertEqual(self.square.x, 200)
-    
+
     def test_update8(self):
         """
         Test the update function that updates the values of instance

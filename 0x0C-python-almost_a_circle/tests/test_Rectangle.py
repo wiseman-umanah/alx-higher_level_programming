@@ -395,7 +395,7 @@ class RectTestCases(unittest.TestCase):
         result = self.rect.load_from_file()
         boo = isinstance(result, list)
         self.assertEqual(boo, True)
-        
+
     def test_create(self):
         """
         Test if code can successfully create a new instance
@@ -419,7 +419,7 @@ class RectTestCases(unittest.TestCase):
         tmp = self.rect.create(**{"id": 2, "width": 2, "height": 4})
         self.assertTrue(isinstance(tmp, Rectangle))
         self.assertEqual(tmp.height, 4)
-    
+
     def test_create3(self):
         """
         Test if code can successfully create a new instance
@@ -432,7 +432,8 @@ class RectTestCases(unittest.TestCase):
         """
         Test if code can successfully create a new instance
         """
-        tmp = self.rect.create(**{"id": 2, "width": 2, "height": 4, "x": 300, "y": 300})
+        tmp = self.rect.create(**{"id": 2, "width": 2, "height": 4,
+                                  "x": 300, "y": 300})
         self.assertTrue(isinstance(tmp, Rectangle))
         self.assertEqual(tmp.y, 300)
 
@@ -462,28 +463,28 @@ class RectTestCases(unittest.TestCase):
         """
         self.rect.update(89, 10, 15)
         self.test_height_get(15)
-    
+
     def test_update3(self):
         """
         Test the update function that updates the values of instance
         """
         self.rect.update(89, 10, 15, 200)
         self.test_x_get(200)
-    
+
     def test_update4(self):
         """
         Test the update function that updates the values of instance
         """
         self.rect.update(89, 10, 15, 200, 300)
         self.test_y_get(300)
-    
+
     def test_update5(self):
         """
         Test the update function that updates the values of instance
         """
         self.rect.update(**{"id": 89})
         self.assertEqual(self.rect.id, 89)
-    
+
     def test_update6(self):
         """
         Test the update function that updates the values of instance
@@ -504,10 +505,11 @@ class RectTestCases(unittest.TestCase):
         """
         self.rect.update(**{"id": 89, "width": 10, "height": 15, "x": 200})
         self.test_x_get(200)
-    
+
     def test_update8(self):
         """
         Test the update function that updates the values of instance
         """
-        self.rect.update(**{"id": 89, "width": 10, "height": 15, "x": 200, "y": 300})
+        self.rect.update(**{"id": 89, "width": 10, "height": 15,
+                            "x": 200, "y": 300})
         self.test_y_get(300)
