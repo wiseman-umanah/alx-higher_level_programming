@@ -7,7 +7,7 @@
 > Prototype: def lookup(obj):
 - Returns a list object
 > You are not allowed to import any module
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 0-main.py
 !!! check file in mains folder
 
@@ -17,7 +17,7 @@ guillaume@ubuntu:~/0x0A$ ./0-main.py
 ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
     
 ## 1. My list
 ``mandatory``
@@ -28,7 +28,7 @@ No test cases needed
 - that prints the list, but sorted (ascending sort)
 > You can assume that all the elements of the list will be of type int
 > You are not allowed to import any module
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 1-main.py
 !!! check file in mains folder
 
@@ -37,7 +37,7 @@ guillaume@ubuntu:~/0x0A$ ./1-main.py
 [1, 2, 3, 4, 5]
 [1, 4, 2, 3, 5]
 guillaume@ubuntu:~/0x0A$ 
-``
+```
 
 ## 2. Exact same object
 
@@ -47,7 +47,7 @@ guillaume@ubuntu:~/0x0A$
 
 > Prototype: def is_same_class(obj, a_class):
 - You are not allowed to import any module
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 2-main.py
 !!! check file in mains folder
 
@@ -55,7 +55,7 @@ guillaume@ubuntu:~/0x0A$ ./2-main.py
 1 is an instance of the class int
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
 
 ## 3. Same class or inherit from
 
@@ -65,7 +65,7 @@ No test cases needed
 
 ``Prototype: def is_kind_of_class(obj, a_class):``
 > You are not allowed to import any module
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 3-main.py
 !!! check file in mains folder
 
@@ -74,7 +74,7 @@ guillaume@ubuntu:~/0x0A$ ./3-main.py
 1 comes from object
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
     
 ## 4. Only sub class of
 
@@ -84,6 +84,7 @@ No test cases needed
 
 ``Prototype: def inherits_from(obj, a_class):``
 > You are not allowed to import any module
+```
 guillaume@ubuntu:~/0x0A$ cat 4-main.py
 !!! check file in mains folder
 
@@ -92,7 +93,7 @@ True inherited from class int
 True inherited from class object
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
     
 ## 5. Geometry module
 
@@ -101,7 +102,7 @@ No test cases needed
 > Write an empty class BaseGeometry.
 
 > You are not allowed to import any module
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 5-main.py
 !!! check file in mains folder
 
@@ -111,7 +112,7 @@ guillaume@ubuntu:~/0x0A$ ./5-main.py
 ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
 
 ## 6. Improve Geometry
 
@@ -121,7 +122,7 @@ No test cases needed
 
 > Public instance method: def area(self): that raises an Exception with the message area() is not implemented
 > You are not allowed to import any module
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 6-main.py
 !!! check file in mains folder
 
@@ -129,7 +130,7 @@ guillaume@ubuntu:~/0x0A$ ./6-main.py
 [Exception] area() is not implemented
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
     
 ## 7. Integer validator
 
@@ -143,7 +144,7 @@ No test cases needed
 - if value is not an integer: raise a TypeError exception, with the message <name> must be an integer
 - if value is less or equal to 0: raise a ValueError exception with the message <name> must be greater than 0
 - You are not allowed to import any module
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 7-main.py
 !!! check file in mains folder
 
@@ -152,7 +153,7 @@ guillaume@ubuntu:~/0x0A$ ./7-main.py
 [ValueError] age must be greater than 0
 [ValueError] distance must be greater than 0
 guillaume@ubuntu:~/0x0A$ 
-``
+```
     
 ## 8. Rectangle
 
@@ -163,7 +164,7 @@ guillaume@ubuntu:~/0x0A$
 > Instantiation with width and height: def __init__(self, width, height):
 - width and height must be private. No getter or setter
 - width and height must be positive integers, validated by integer_validator
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 8-main.py
 !!! check file in mains folder
 
@@ -174,7 +175,7 @@ guillaume@ubuntu:~/0x0A$ ./8-main.py
 [TypeError] height must be an integer
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
     
 ## 9. Full rectangle
 
@@ -187,7 +188,7 @@ No test cases needed
 - width and height must be positive integers validated by integer_validator
 - the area() method must be implemented
 - print() should print, and str() should return, the following rectangle description: ``[Rectangle] <width>/<height>``
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 9-main.py
 !!! check file in mains folder
 
@@ -196,7 +197,7 @@ guillaume@ubuntu:~/0x0A$ ./9-main.py
 15
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
     
 ## 10. Square #1
 
@@ -208,7 +209,7 @@ No test cases needed
 - size must be private. No getter or setter
 - size must be a positive integer, validated by integer_validator
 - the area() method must be implemented
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 10-main.py
 !!! check file in mains folder
 
@@ -217,7 +218,7 @@ guillaume@ubuntu:~/0x0A$ ./10-main.py
 169
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
     
 ## 11. Square #2
 
@@ -230,7 +231,7 @@ No test cases needed
 - size must be a positive integer, validated by integer_validator
 - the area() method must be implemented
 - print() should print, and str() should return, the square description: ``[Square] <width>/<height>``
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 11-main.py
 !!! check file in mains folder
 
@@ -239,7 +240,7 @@ guillaume@ubuntu:~/0x0A$ ./11-main.py
 169
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
     
 ## 12. My integer
 
@@ -249,7 +250,7 @@ No test cases needed
 
 > MyInt is a rebel. MyInt has == and != operators inverted
 > You are not allowed to import any module
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 100-main.py
 !!! check file in mains folder
 
@@ -259,7 +260,7 @@ False
 True
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
 
 ## 13. Can I?
 
@@ -270,7 +271,7 @@ No test cases needed
 > Raise a TypeError exception, with the message can't add new attribute if the object can’t have new attribute
 - You are not allowed to use try/except
 -You are not allowed to import any module
-``
+```
 guillaume@ubuntu:~/0x0A$ cat 101-main.py
 !!! check file in mains folder
 
@@ -279,4 +280,4 @@ John
 [TypeError] can't add new attribute
 guillaume@ubuntu:~/0x0A$ 
 No test cases needed
-``
+```
