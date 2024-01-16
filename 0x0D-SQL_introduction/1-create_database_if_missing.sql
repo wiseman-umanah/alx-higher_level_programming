@@ -1,0 +1,2 @@
+-- creates the database hbtn_0c_0 in your MySQL server if it doesn't exist
+CREATE DATABASE hbtn_0c_0;
