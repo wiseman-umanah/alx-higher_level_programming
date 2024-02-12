@@ -1,2 +1,2 @@
-require("./100-main")
-myVar = 333;
+require('./100-main');
+const myVar = 333;
