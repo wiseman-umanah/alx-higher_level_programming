@@ -1,2 +1,2 @@
-require('./100-main').myVar;
+#!/usr/bin/node
 myVar = 333;
