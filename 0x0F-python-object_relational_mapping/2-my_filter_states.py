@@ -19,9 +19,9 @@ if __name__ == "__main__":
                           user=user, port=port)
 
     cur = con.cursor()
-    cur.execute(f"SELECT * FROM states\
-                WHERE name = '{search}'\
-                ORDER BY states.id ASC")
+    cur.execute("SELECT * FROM states\
+                WHERE name = '{}'\
+                ORDER BY states.id ASC".format(search))
 
     result = cur.fetchall()
     for i in result:
