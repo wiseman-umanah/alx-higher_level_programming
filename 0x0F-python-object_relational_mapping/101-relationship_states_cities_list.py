@@ -23,12 +23,9 @@ if __name__ == "__main__":
     data = session.query(State, City).filter(
         State.id == City.state_id).order_by(asc(State.id), asc(City.id))
 
-    state_name = ""
-
-    for state, city in data:
-        if state.name != state_name:
-            print("{}: {}".format(state.id,  state.name))
-            state_name = state.name
-        print("\t{}: {}".format(city.id, city.name))
+    for state in session.query(State).order_by(State.id):
+        print("{}: {}".format(state.id,  state.name))
+        for city in state.cities:
+            print("\t{}: {}".format(city.id, city.name))
 
     session.close()
