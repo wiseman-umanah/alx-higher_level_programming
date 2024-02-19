@@ -14,7 +14,7 @@ if __name__ == "__main__":
     pd = args[2]
     port = 3306
     dbName = args[3]
-    search = ' '.join(args[4:])
+    search = ' '.join(args[4:]).replace(";", "")
 
     con = MySQLdb.connect(host=host, passwd=pd, db=dbName,
                           user=user, port=port)
