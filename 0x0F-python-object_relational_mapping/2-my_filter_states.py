@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     cur = con.cursor()
     cur.execute("SELECT * FROM states\
-                WHERE name = '{}'\
+                WHERE name LIKE BINARY '{}'\
                 ORDER BY states.id ASC".format(search))
 
     result = cur.fetchall()
