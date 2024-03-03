@@ -12,4 +12,4 @@ if __name__ == "__main__":
             res = response.read()
         print(res)
     except error.HTTPError as e:
-        print(e.code)
+        print(f"Error code:\t{e.code}")
