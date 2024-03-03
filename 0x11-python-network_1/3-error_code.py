@@ -7,7 +7,7 @@ if __name__ == "__main__":
     from urllib import request, error
     from sys import argv
 
-    req = request.Request('http://www.python.org/fish.html')
+    req = request.Request(argv[1])
     try:
         request.urlopen(req)
     except error.HTTPError as e:
