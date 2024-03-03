@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Sends a request and gets value of a header
+Sends a request and gets error status
 """
 
 if __name__ == "__main__":
