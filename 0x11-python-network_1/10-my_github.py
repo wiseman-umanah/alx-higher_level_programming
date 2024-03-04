@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Search using a string
+"""Github Api with Python via CLI
+Authenticates with username, password
+Usage: ./10-my_github <username> <password>
 """
 
 
@@ -12,4 +14,4 @@ if __name__ == "__main__":
     passwd = argv[2]
     auth = HTTPBasicAuth(name, passwd)
     r = requests.get("https://api.github.com/user", auth=auth)
-    print(r.json())
+    print(r.json().get("id"))
