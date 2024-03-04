@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     letter = "" if len(argv) == 1 else argv[1]
     try:
-        r = requests.post("http://0.0.0.0:5000/search_user", data={"q": letter})
+        r = requests.post("http://0.0.0.0:5000/search_user", json={"q": letter})
         response = r.json()
         if response == {}:
             print("No result")
